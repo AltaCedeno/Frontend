@@ -1,0 +1,88 @@
+//La URL base de mi API de backend
+const API_BASE_URL = 'http://localhost:3000/api/auth/sign-up'; 
+
+
+
+/*
+ * Función para registrar un nuevo usuario.
+ * @param {string} nombre - El nombre del usuario.
+ * @param {string} email - El correo electrónico del usuario.
+ * @param {string} password - La contraseña del usuario.
+ * @returns {Promise<object>} Una promesa que se resuelve con la respuesta del servidor (ej. token de usuario).
+ * @throws {Error} Lanza un error si la solicitud falla o el servidor devuelve un error.
+ */
+export async function UserRegister(nombre, email, password) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/RegisterUser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // El cuerpo de la solicitud (Payload) con los campos de registro
+      body: JSON.stringify({ nombre, email, password }),
+    });
+
+    // Si la respuesta no es exitosa (ej. 400, 401, 500)
+    if (!response.ok) {
+      // Intenta leer el mensaje de error del cuerpo de la respuesta (si existe)
+      const errorData = await response.json();
+      const errorMessage = errorData.message || `Error en el registro: Código de estado ${response.status}`;
+      
+      // Lanza un error con el mensaje más específico
+      throw new Error(errorMessage);
+    }
+
+    // Si la respuesta es exitosa (ej. 200, 201)
+    const data = await response.json();
+    return data; // Por lo general, esto incluye el token de autenticación y/o la info del usuario
+  } catch (error) {
+    // Captura errores de red o errores lanzados desde 'if (!response.ok)'
+    console.error('Fallo en el servicio de registro:', error.message);
+    // Vuelve a lanzar el error para que el componente de React lo pueda manejar
+    throw error;
+  }
+}
+
+
+export async function Login(email, password)   {
+  try {
+    const response = await fetch(`${API_BASE_URL}/loginUser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // El cuerpo de la solicitud (Payload) con los campos de registro
+      body: JSON.stringify({ email, password }),
+    });
+
+    // Si la respuesta no es exitosa (ej. 400, 401, 500)
+    if (!response.ok) {
+      // Intenta leer el mensaje de error del cuerpo de la respuesta (si existe)
+      const errorData = await response.json();
+      const errorMessage = errorData.message || `Error en el login: Código de estado ${response.status}`;
+      
+      // Lanza un error con el mensaje más específico
+      throw new Error(errorMessage);
+    }
+
+    // Si la respuesta es exitosa (ej. 200, 201)
+    const data = await response.json();
+    return data; // Por lo general, esto incluye el token de autenticación y/o la info del usuario
+  } catch (error) {
+    // Captura errores de red o errores lanzados desde 'if (!response.ok)'
+    console.error('Fallo en el servicio de login:', error.message);
+    // Vuelve a lanzar el error para que el componente de React lo pueda manejar
+    throw error;
+  }
+}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
