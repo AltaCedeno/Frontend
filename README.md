@@ -21,7 +21,7 @@ Puedes ver la aplicación funcionando aquí:
 * **Gestión de Datos:** Conexión completa CRUD con MySQL.
 * **Arquitectura:** Separación clara entre Frontend y Backend (API REST).
 * **Interfaz Responsiva:** Adaptable a dispositivos móviles y escritorio.
-* [Añade otra característica clave aquí].
+* [Implementación de autenticación segura mediante JWT y protección de rutas privadas en el Frontend para evitar accesos no autorizados."].
 
 ## 🔧 Instalación y Configuración Local
 
