@@ -32,7 +32,7 @@ const LoginHandler = () => {
         setIsLoggedIn(false);
 
         try {
-            // Llama a la función de servicio
+            // Llama a la función de servicio que la tengo junta las dos en auth.service.js
             const response = await loginUserWithFetch(formData); 
             
             if (response.success) {

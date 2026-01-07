@@ -51,13 +51,13 @@ export async function registerUserWithFetch(data) { // Eliminamos el tipado aqu√
 }
 
 
-// Las interfaces deben eliminarse de este archivo .js (ver punto 2)
+// Las interfaces deben eliminarse de este archivo .js (ver punto 2)so inecesarias
 //----------------------------------------------------------------------------
 
 
 export async function loginUserWithFetch(data) { 
     try {
-        const response = await fetch(`${API_BASE_URL}/sign-in`, {
+        const response = await fetch(`${API_BASE_URL}/sign-in`, {//especificarmos su endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export async function loginUserWithFetch(data) {
         // Capturamos errores de red o los errores que lanzamos nosotros
         const errorMessage = error instanceof Error ? error.message : "Error desconocido al registrar.";
         
-        // Devolvemos el objeto de respuesta de error esperado en login
+        // Devolvemos el objeto json de respuesta de error esperado en login(undefined pues no hay usuario ni token)
         return {
             success: false, 
             message: errorMessage, 
