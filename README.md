@@ -6,16 +6,12 @@
 Este es un proyecto Full Stack desarrollado para dar a conocer sobre mi emprendimiento. 
 La aplicación permite [gestionar registros, visualizar datos en tiempo real, etc.].
 
-## 🚀 Demo
-Puedes ver la aplicación funcionando aquí: 
-* **Frontend (Firebase):** [TU-URL-DE-FIREBASE]
-* **API Backend (Render):**[ https://backend-1-1dkk.onrender.com]
 
 ## 🛠️ Stack Tecnológico
 * **Frontend:** React.js, [usando Bootstrap y CSS puro].
 * **Backend:** Node.js con Express.
-* **Base de Datos:** MySQL.
-* **Despliegue:** Firebase (Frontend) y Render (Backend).
+* **Base de Datos:** MySQL.Sequelize: User.findByPk
+* **Despliegue EN PROCESO:** Firebase (Frontend) y Render (Backend). 
 
 ## 📋 Características Principales
 * **Gestión de Datos:** Conexión completa CRUD con MySQL.
